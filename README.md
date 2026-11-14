@@ -63,8 +63,8 @@ After public launch, report bugs in [GitHub Issues](https://github.com/ndquy2048
 
 ## License and credits
 
-Copyright © 2026 VEGA HOME. All rights reserved.
+Copyright © 2026 ndquy2048. All rights reserved.
 
-VEGA HOME is **source-available, not open-source**. The draft [VEGA HOME Personal Use License](LICENSE) describes permission for personal non-commercial use and restrictions on redistribution, modified publication and commercial use. The rights-holder identification and final license wording must be approved **before public publication**.
+VEGA HOME is **source-available, not open-source**. The [VEGA HOME Personal Use License — Version 1.0](LICENSE) permits personal, non-commercial household use, subject to restrictions on redistribution, publishing modified versions and commercial use. GitHub users retain platform permissions to view and fork public repositories under GitHub's Terms of Service.
 
 Bundled Material Design Icons and other identified third-party resources retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md).

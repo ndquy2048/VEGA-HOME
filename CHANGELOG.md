@@ -6,4 +6,4 @@
 - Room-based device, media, scene, automation and camera controls.
 - Configurable appearance, language and optional lock screen.
 
-The release will be published after the project's license, repository metadata, security review and installation tests are complete.
+Publication remains pending final security/privacy review, repository settings and real-device installation tests.

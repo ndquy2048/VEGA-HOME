@@ -1,24 +1,51 @@
 VEGA HOME PERSONAL USE LICENSE — VERSION 1.0
-Copyright © 2026 VEGA HOME. All rights reserved.
+Copyright © 2026 ndquy2048. All rights reserved.
+
+This license applies to the original VEGA HOME code and other project material
+for which ndquy2048 holds the necessary rights. It does not override the
+licenses of third-party components supplied with VEGA HOME.
 
 1. GRANT OF PERMISSION
-Subject to compliance with this license, the copyright holder permits individuals to obtain and view the VEGA HOME source code and to download, install, run, and make reasonable backup copies of VEGA HOME for personal, non-commercial household use.
+Subject to compliance with this license, ndquy2048 permits individuals to
+obtain and view the VEGA HOME source code, and to download, install, run and
+make reasonable backup copies of VEGA HOME for personal, non-commercial
+household use.
 
 2. RESTRICTIONS
-Except with prior written permission from the rights holder, you may not:
-(a) publish, distribute, sublicense, resell, or otherwise make copies of VEGA HOME available to third parties;
-(b) publish or distribute modifications, forks, derivative works, or other versions of VEGA HOME;
-(c) use VEGA HOME or its source code for a commercial service, product, or paid offering;
-(d) use the VEGA HOME name, logos, or other branding to imply endorsement or to market another product; or
-(e) remove or obscure copyright or license notices.
+Except as permitted by applicable law, applicable third-party licenses, the
+GitHub platform permissions described in Section 3, or prior written permission
+from the copyright holder, you may not:
+(a) publish, distribute, sublicense, resell or otherwise make copies of VEGA
+    HOME available to third parties;
+(b) publish or distribute modifications, forks, derivative works or other
+    versions of VEGA HOME;
+(c) use VEGA HOME or its source code in a commercial service, product or paid
+    offering;
+(d) use the VEGA HOME name, logos or other project branding to imply
+    endorsement or to market another product; or
+(e) remove or obscure applicable copyright or license notices.
 
-3. OWNERSHIP AND THIRD-PARTY COMPONENTS
-VEGA HOME remains the property of its respective rights holder(s). This license applies only to material the VEGA HOME rights holder is entitled to license. Third-party components remain subject to their own licenses, including the notices distributed with this software. Nothing here restricts rights granted by those third-party licenses or by applicable law.
+3. GITHUB PLATFORM PERMISSIONS
+Publishing this repository publicly on GitHub allows users to view and fork
+it within GitHub as provided by GitHub's Terms of Service. Nothing in this
+license is intended to limit those platform-specific rights. Those rights
+alone do not grant permission to distribute independent copies or publish
+modified versions outside what GitHub's Terms of Service allows.
 
-4. NO WARRANTY
-To the extent permitted by applicable law, VEGA HOME is provided "AS IS", without warranties of any kind, express or implied. The authors and rights holders disclaim liability for damages arising from its use to the extent permitted by applicable law.
+4. OWNERSHIP AND THIRD-PARTY COMPONENTS
+Original VEGA HOME code and project artwork remain subject to the rights of
+their respective owners. Bundled third-party resources, including Material
+Design Icons (MDI), remain governed by their applicable licenses and notices.
+This project-specific license does not restrict any rights provided by those
+third-party licenses. See THIRD_PARTY_NOTICES.md.
 
-5. PERMISSIONS
-Requests for permissions beyond this license must be directed to the VEGA HOME rights holder through the project-maintained contact channels.
+5. NO WARRANTY AND LIMITATION OF LIABILITY
+To the extent permitted by applicable law, VEGA HOME is provided "AS IS",
+without warranties of any kind, express or implied. The author and other
+rights holders disclaim liability for damages arising from its use to the
+extent permitted by applicable law.
 
-This is a proposed project-specific license text, not legal advice. The rights-holder identity, third-party obligations, GitHub platform permissions, and distribution eligibility should be reviewed before public publication.
+6. ADDITIONAL PERMISSIONS
+Requests for commercial or other permissions outside this license may be
+submitted to the project maintainer through the contact channels identified
+in the VEGA HOME repository.

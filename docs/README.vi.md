@@ -28,4 +28,5 @@ Xem [hướng dẫn tiếng Anh chi tiết](INSTALLATION.md), [câu hỏi thư�
 - VEGA HOME là integration do cộng đồng phát triển, không phải sản phẩm chính thức của Home Assistant.
 - Chỉ sử dụng những quyền mà giấy phép VEGA HOME và các giấy phép bên thứ ba cho phép.
 - Không đăng token, địa chỉ nhà, IP nội bộ, bản sao lưu HA hoặc hình ảnh camera riêng tư khi báo lỗi công khai.
-- Mức tương thích tối thiểu và giấy phép cuối cùng sẽ được xác nhận trước khi phát hành chính thức.
+- Bản quyền phần mã nguồn gốc: © 2026 ndquy2048. VEGA HOME dùng giấy phép **Source Available — Free for Personal Use**; hãy đọc [LICENSE](../LICENSE) trước khi tải hoặc phân phối.
+- Mức tương thích Home Assistant tối thiểu vẫn cần kiểm tra trước khi phát hành chính thức.
