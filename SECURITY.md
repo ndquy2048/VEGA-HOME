@@ -4,6 +4,6 @@ VEGA HOME interacts with Home Assistant entities and may control physical device
 
 **Do not post security vulnerabilities, access tokens, private media, household addresses, or configuration backups in public GitHub Issues.**
 
-Once the GitHub repository is created, the maintainer should enable **GitHub Private Vulnerability Reporting** (Repository Settings → Security). Vulnerabilities should then be reported through that private channel. Until a private reporting channel is configured, do not share sensitive proof-of-concept data publicly.
+After the GitHub repository is made **public**, the maintainer should enable **GitHub Private Vulnerability Reporting** (Repository Settings → Security and quality → Advanced Security). Vulnerabilities should then be reported through that private channel. Until a private reporting channel is available, do not publish sensitive proof-of-concept details in public issues.
 
 VEGA HOME is an independent community integration and is not reviewed or supported by the Home Assistant project.
