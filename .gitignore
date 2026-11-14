@@ -1,0 +1,32 @@
+# Machine-generated files
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+
+# Secrets, local configuration and backups
+.env
+.env.*
+*.log
+*.zip
+*.bak
+*.backup
+*.tar
+*.tar.gz
+*.mov
+*.mp4
+
+# Local-only working documents (not part of the distributable project)
+private/
+internal/
+audit/
+notes/
+*_PRIVATE*
+*_AUDIT*
+*_QA*
+*_RULE*
+*_LOG*
+*_HISTORY*

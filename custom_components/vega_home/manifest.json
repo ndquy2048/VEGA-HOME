@@ -1,0 +1,20 @@
+{
+  "domain": "vega_home",
+  "name": "VEGA HOME",
+  "version": "1.0.0",
+  "config_flow": true,
+  "integration_type": "service",
+  "dependencies": [
+    "frontend",
+    "http",
+    "panel_custom",
+    "websocket_api",
+    "media_source"
+  ],
+  "requirements": [],
+  "documentation": "https://github.com/ndquy2048/VEGA-HOME#readme",
+  "issue_tracker": "https://github.com/ndquy2048/VEGA-HOME/issues",
+  "codeowners": [
+    "@ndquy2048"
+  ]
+}

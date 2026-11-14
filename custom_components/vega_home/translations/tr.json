@@ -1,0 +1,37 @@
+{
+  "title": "VEGA HOME",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up VEGA HOME",
+        "description": "Create a new home dashboard. After setup, open VEGA HOME to choose rooms and devices."
+      }
+    },
+    "abort": {
+      "already_configured": "VEGA HOME is already configured.",
+      "panel_conflict": "The /vega-home panel path is already registered."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Advanced configuration",
+        "description": "Use the room and device editor inside VEGA HOME for normal setup. This optional JSON editor replaces the current configuration when saved.",
+        "data": {
+          "config_json": "Configuration JSON"
+        }
+      }
+    },
+    "error": {
+      "invalid_config": "Hata: JSON. 0–100 Odalar, Ad, Varlık; ≤1 MiB."
+    }
+  },
+  "exceptions": {
+    "panel_conflict": {
+      "message": "The /vega-home panel path is already registered."
+    },
+    "invalid_config": {
+      "message": "Hata: JSON. 0–100 Odalar, Ad, Varlık; ≤1 MiB."
+    }
+  }
+}

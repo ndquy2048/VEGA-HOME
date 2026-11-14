@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible VEGA HOME problem
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not include tokens, HA backups, private entity names, internal IP addresses, or camera images.
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+      description: Example, 2026.11.x
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: VEGA HOME version
+      description: Example, 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where does it happen?
+      options:
+        - Web browser (desktop)
+        - Home Assistant Companion (iOS)
+        - Home Assistant Companion (Android)
+        - Kiosk / touch display
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the actual behavior and the behavior you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include a short reproducible sequence, without private information.
+    validations:
+      required: true
