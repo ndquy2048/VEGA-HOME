@@ -1,6 +1,6 @@
 # VEGA HOME
 
-![VEGA HOME logo](custom_components/vega_home/brand/icon@2x.png)
+![VEGA HOME logo](docs/images/vega-home-logo-112.png)
 
 **VEGA HOME 1.0.0** is a customizable smart-home dashboard inspired by Apple Home, built for [Home Assistant](https://www.home-assistant.io/). Arrange rooms and devices in a glass-style interface designed for phones, tablets, desktop browsers and touch displays.
 
