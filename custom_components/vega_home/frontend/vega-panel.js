@@ -77,7 +77,7 @@ class VegaHomePanel extends HTMLElement {
   // The version displayed by every settings/editor dialog follows the HA
   // integration manifest so dialogs display the current integration version.
   get releaseVersion() {
-    return this._panelInfo?.config?.integration_version || '1.0.0';
+    return this._panelInfo?.config?.integration_version || '1.0.1';
   }
 
   /* KẾT NỐI HOME ASSISTANT */

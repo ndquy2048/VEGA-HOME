@@ -14,7 +14,7 @@ Create a Home Assistant backup before copying files, installing updates, or remo
 
 ## Install with Marketplace (Home Assistant 2026.11 and newer)
 
-This procedure applies **after the VEGA HOME repository is public**.
+This procedure uses the public VEGA HOME repository.
 
 1. Open **Settings → Marketplace** using an administrator account.
 2. Accept the Marketplace warning if prompted.
@@ -24,7 +24,7 @@ This procedure applies **after the VEGA HOME repository is public**.
 6. Follow the setup flow if Home Assistant opens it. Otherwise open **Settings → Devices & services → Add integration** and search **VEGA HOME**.
 7. Open the VEGA HOME sidebar entry or go to `/vega-home`.
 
-Marketplace installation from a link requires a **public** GitHub repository. Marketplace may ask you to authorize a GitHub connection. The repository is `https://github.com/ndquy2048/VEGA-HOME`. It must be **public** before installing through Marketplace.
+Marketplace installation from a link requires a **public** GitHub repository. Marketplace may ask you to authorize a GitHub connection. The repository is `https://github.com/ndquy2048/VEGA-HOME`. Marketplace requires the repository to be **public**.
 
 ## Install with HACS (older Home Assistant setups)
 

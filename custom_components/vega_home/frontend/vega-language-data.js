@@ -346,7 +346,7 @@ export const DEFAULT_WORDS={
   "media.playWaiting": "Waiting for the speaker to play…",
   "media.playTimeout": "The speaker has not reported playback.",
   "music.lockUnavailable": "Music is playing. The lock screen could not open.",
-  "footer.inspired": "VEGA HOME • 1.0.0",
+  "footer.inspired": "VEGA HOME • 1.0.1",
   "theme.auto": "Automatic by time",
   "theme.light": "Light mode",
   "theme.dark": "Dark mode",

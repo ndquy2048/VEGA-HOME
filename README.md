@@ -1,6 +1,6 @@
 # VEGA HOME
 
-**VEGA HOME 1.0.0** is an independent smart-home dashboard for [Home Assistant](https://www.home-assistant.io/), with a visual design inspired by Apple Home. It works with devices and entities already connected to Home Assistant; **Apple Home, HomeKit and HomeKit-compatible devices are not required**.
+**VEGA HOME 1.0.1** is an independent smart-home dashboard for [Home Assistant](https://www.home-assistant.io/), with a visual design inspired by Apple Home. It works with devices and entities already connected to Home Assistant; **Apple Home, HomeKit and HomeKit-compatible devices are not required**.
 
 [Installation guide](docs/INSTALLATION.md) · [FAQ](docs/FAQ.md) · [Privacy & network](docs/PRIVACY.md)
 
@@ -20,7 +20,7 @@ VEGA HOME is an **independent community integration**, not an official Home Assi
 
 ### Home Assistant 2026.11+ — Marketplace
 
-Once this project has a **public GitHub repository** and has passed publication checks:
+For installation from the public VEGA HOME repository:
 
 1. Back up your Home Assistant configuration.
 2. In Home Assistant, open **Settings → Marketplace → Add from link** as an administrator.
@@ -29,7 +29,7 @@ Once this project has a **public GitHub repository** and has passed publication 
 5. Add **VEGA HOME** under **Settings → Devices & services** if setup does not open automatically.
 6. Open **VEGA HOME** in the sidebar or navigate to `/vega-home`.
 
-Repository: [https://github.com/ndquy2048/VEGA-HOME](https://github.com/ndquy2048/VEGA-HOME). The repository must be made **public** before Marketplace can install it from a link.
+Repository: [https://github.com/ndquy2048/VEGA-HOME](https://github.com/ndquy2048/VEGA-HOME). Marketplace requires a **public** repository to install from a link.
 
 ### Manual installation
 
