@@ -1,22 +1,18 @@
 # VEGA HOME
 
-![VEGA HOME logo](docs/images/vega-home-logo-112.png)
+**VEGA HOME 1.0.0** is an independent smart-home dashboard for [Home Assistant](https://www.home-assistant.io/), with a visual design inspired by Apple Home. It works with devices and entities already connected to Home Assistant; **Apple Home, HomeKit and HomeKit-compatible devices are not required**.
 
-**VEGA HOME 1.0.0** is a customizable smart-home dashboard inspired by Apple Home, built for [Home Assistant](https://www.home-assistant.io/). Arrange rooms and devices in a glass-style interface designed for phones, tablets, desktop browsers and touch displays.
-
-**[Hướng dẫn tiếng Việt](docs/README.vi.md)** · [Installation guide](docs/INSTALLATION.md) · [FAQ](docs/FAQ.md) · [Privacy & network](docs/PRIVACY.md)
+[Installation guide](docs/INSTALLATION.md) · [FAQ](docs/FAQ.md) · [Privacy & network](docs/PRIVACY.md)
 
 ## Features
 
-- Rooms and device controls based on entities already configured in Home Assistant.
-- Device, scene, automation and camera views, with support dependent on entity capabilities.
-- Media-player popups and optional Music Assistant browsing when configured.
-- Light/dark appearance and a selection of interface languages.
-- Brightness-only lights use a simple vertical slider with a separate power button; color-capable lights retain their full controls.
-- Optional per-device confirmation before turning off supported power-controlled devices, with a customizable message.
-- Inactive device and appearance settings close automatically after 60 seconds; unfinished device edits are discarded, while already autosaved appearance preferences remain.
-- Optional lock-screen/slideshow. **Auto lock after → Do not use** disables the lock screen on the current browser/device. In that mode, Music opens the active player's regular popup instead.
-- Touch-friendly layouts, including compact wall-mounted dashboards.
+- **Apple Home–inspired interface:** A clean, familiar smart-home layout with rooms and interactive device cards.
+- **Home Assistant without HomeKit:** Use VEGA HOME with Home Assistant entities; no Apple Home setup or HomeKit hardware is needed.
+- **More device capabilities when available:** Access additional controls exposed by Home Assistant integrations, including functions that may not be available through HomeKit.
+- **Wall-mounted control panels:** Designed for permanent touchscreen dashboards, with an optional smart lock screen and customizable background images or photo slideshows.
+- **Touch-friendly controls:** Responsive buttons, sliders and popups designed for direct touch interaction.
+- **Small-screen support:** Adaptive layouts for phones and compact touch displays.
+- **Music and media players:** Connect to and monitor supported Home Assistant media players, view playback status, and control music; Music Assistant browsing is available when configured.
 
 VEGA HOME is an **independent community integration**, not an official Home Assistant product and is not affiliated with Apple. It does not replace or modify the built-in Home Assistant dashboard.
 
