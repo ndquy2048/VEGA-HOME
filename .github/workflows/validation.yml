@@ -11,6 +11,8 @@ permissions:
 jobs:
   hacs:
     name: Marketplace / HACS validation
+    # HACS only validates public repositories; continue running hassfest while private.
+    if: ${{ github.event.repository.private == false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

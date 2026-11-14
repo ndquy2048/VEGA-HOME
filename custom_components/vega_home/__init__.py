@@ -12,6 +12,7 @@ from homeassistant.components.http import StaticPathConfig
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryError
+from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
 from .config import InvalidVegaConfig, validate_devices
@@ -27,6 +28,9 @@ from .const import (
 from .websocket import websocket_get_config, websocket_save_config, websocket_media_folder
 
 _LOGGER = logging.getLogger(__name__)
+
+# VEGA HOME is configured through the Home Assistant UI, not configuration.yaml.
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 @dataclass
