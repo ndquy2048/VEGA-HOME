@@ -1,0 +1,420 @@
+/* VEGA HOME — base glass appearance. */
+:host {
+}
+.rooms .room { font-size: var(--panel-room-font-size); }
+.tabs .tab { font-size: var(--panel-tab-font-size); }
+.cards .card .detail strong { font-size: var(--panel-device-font-size); }
+.cards .card .detail .device-status { font-size: var(--panel-status-font-size); }
+:host .app[hidden] {display:none!important}
+:host .app {
+  isolation: isolate;
+  overflow: hidden;
+  background: #b9cbd5;
+}
+:host .app::before {
+  content: "";
+  position: absolute;
+  inset: -35px;
+  z-index: -2;
+  background-image:
+    var(--v41-wallpaper-image,none),
+    linear-gradient(157deg,#75acc9 0%,#d1dad6 52%,#be995d 100%);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: none;
+  pointer-events: none;
+}
+:host .app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(168deg,rgba(255,255,255,.06),rgba(255,255,255,.02) 62%,rgba(255,255,255,0));
+  pointer-events: none;
+}
+:host .side, :host .main { position: relative; z-index: 1; }
+:host([data-theme="light"]) .app {
+  background: #b9cbd5;
+}
+:host([data-theme="light"]) .side {
+  border: 1px solid rgba(255,255,255,.26);
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(35,48,58,.14), inset 0 1px 0 rgba(255,255,255,.16);
+}
+:host([data-theme="light"]) .room {color:rgba(247,251,255,.88)}
+:host([data-theme="light"]) .room .ico {color:#e7f2f9}
+:host([data-theme="light"]) .room.selected {
+  background: #2b7efa;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(31,91,164,.25);
+  border-radius: 11px;
+}
+:host([data-theme="light"]) .room.selected .ico {color:#fff}
+:host([data-theme="light"]) .head h1 {color:#ffffff;text-shadow:0 1px 8px #30495b33}
+:host([data-theme="light"]) .tabs {
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:17px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+}
+:host([data-theme="light"]) .tab {color:#fcfdff}
+:host([data-theme="light"]) .tab.active {
+  border-radius:12px;
+}
+:host([data-theme="light"]) .card {
+  background: linear-gradient(180deg, rgba(91,103,114,.44), rgba(87,94,99,.40));
+  border:1px solid rgba(255,255,255,.26);
+  border-radius:19px;
+  box-shadow:0 4px 16px rgba(38,52,66,.08), inset 0 1px 0 rgba(255,255,255,.14);
+  color:#fdfdfd;
+  backdrop-filter: blur(12px) saturate(1.04);
+  -webkit-backdrop-filter: blur(12px) saturate(1.04);
+}
+:host([data-theme="light"]) .card.on {
+  background:linear-gradient(180deg, rgba(235,241,245,.65), rgba(211,220,225,.58));
+  border-color:rgba(255,255,255,.52);
+  box-shadow:0 4px 18px rgba(53,64,74,.14), inset 0 1px 0 rgba(255,255,255,.68);
+  color:#28333e;
+}
+:host([data-theme="light"]) .card .detail strong, :host([data-theme="light"]) .card .detail small {color:rgba(255,255,255,.95)}
+:host([data-theme="light"]) .card.on .detail strong {color:#26323f}
+:host([data-theme="light"]) .card.on .detail small {color:#6c7680}
+:host([data-theme="light"]) .head-action {
+  background:linear-gradient(180deg, rgba(72,91,108,.51), rgba(70,79,88,.44));
+  border:1px solid rgba(255,255,255,.26);color:#fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+  backdrop-filter:blur(14px) saturate(1.04);-webkit-backdrop-filter:blur(14px) saturate(1.04);
+}
+:host([data-theme="light"]) #theme-toggle, :host([data-theme="light"]) #screen-power.screen-on {color:#ffd879}
+:host([data-theme="light"]) .empty-tab {color:#fff}
+:host([data-theme="light"]) .empty-tab small {color:#e7edf2}
+:host([data-theme="light"]) .foot {color:rgba(255,255,255,.83)}
+:host([data-theme="dark"]) .app {background:#151f2b}
+:host([data-theme="dark"]) .app::after {
+  background:linear-gradient(160deg,rgba(9,20,33,.67),rgba(17,21,29,.70) 65%,rgba(42,35,31,.66));
+}
+:host([data-theme="dark"]) .side {
+  border:1px solid #ffffff16;
+  border-radius:22px;
+}
+:host([data-theme="dark"]) .room.selected {background:#296bc5;border-radius:11px;color:#fff}
+:host([data-theme="dark"]) .room.selected .ico {color:#fff}
+:host([data-theme="dark"]) .tabs {border:1px solid #ffffff15;border-radius:17px;}
+:host([data-theme="dark"]) .tab.active {border-radius:12px}
+:host([data-theme="dark"]) .card {
+  background:rgba(113,130,140,.24);
+  border:1px solid #ffffff14;
+  border-radius:19px;
+  color:#f7fbff;
+}
+:host([data-theme="dark"]) .card.on {
+  background:rgba(234,243,248,.89);
+  border-color:#ffffff88;
+  color:#263540;
+}
+:host([data-theme="dark"]) .card.on .detail strong {color:#1d2b39}
+:host([data-theme="dark"]) .card.on .detail small {color:#657582}
+:host([data-theme="dark"]) .card.on .symbol {color:#fff}
+:host([data-theme="dark"]) .head-action {background:rgba(43,60,76,.78);border-color:#ffffff19}
+:host .cards .card .symbol {
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#eef5fb;
+  font-size:inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16);
+}
+:host .cards .card .symbol svg {width:23px;height:23px;display:block;flex:none}
+:host .cards .card.on .symbol {background:#e8b625;color:#fff}
+:host .cards .card.on.device-type-climate .symbol, :host .cards .card.on.device-type-fan .symbol {background:#57b8d6;color:#fff}
+:host .cards .card.on.device-type-media .symbol {background:#35a4b7;color:#fff}
+:host .cards .card.on.device-type-printer .symbol {background:#5d86bb;color:#fff}
+:host .cards .card.on.device-type-switch .symbol {background:#6d8aa3;color:#fff}
+@media(max-width:680px) {:host .cards .card .symbol {width:30px;height:30px}
+:host .cards .card .symbol svg {width:19px;height:19px}}
+:host { --panel-room-font-size: 14px; --panel-tab-font-size: 14.5px;
+  --panel-device-font-size: 15px; --panel-status-font-size: 12.5px; }
+:host .head h1 { font-size: 27px; }
+:host .room { line-height: 1.22; font-weight: 700; }
+:host .room span:last-child { min-width: 0; line-height: 1.28; overflow-wrap: anywhere; }
+:host .detail strong { line-height: 1.26; font-weight: 720; }
+:host .detail small { line-height: 1.25; }
+:host .foot { font-size: 10px; align-items: center; }
+:host .foot span:first-child { max-width: 70%; }
+:host .head-action { flex:none; }
+@media (max-width:680px) {:host .room { font-size: 11px; }
+:host .head h1 { font-size: 23px; }
+:host .head-action { width: 32px; height: 32px; }
+:host .head-actions { gap: 4px; }}
+:host #theme-toggle, :host #screen-power, :host([data-theme="light"]) #theme-toggle, :host([data-theme="light"]) #screen-power, :host([data-theme="dark"]) #theme-toggle, :host([data-theme="dark"]) #screen-power {
+  color: #fff;
+}
+:host .cards .card.device-type-climate {
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1px;
+  padding:9px 13px;
+  overflow:hidden;
+}
+:host .cards .card.device-type-climate .symbol {display:none;}
+:host .cards .card.device-type-climate .climate-current {
+  display:block;
+  flex:none;
+  font-weight:740;
+  font-size:clamp(26px,5.6vh,43px);
+  line-height:1.02;
+  letter-spacing:-1.3px;
+  font-variant-numeric:tabular-nums;
+  color:inherit;
+}
+:host .cards .card.device-type-climate .detail {flex:none;gap:2px;width:100%;}
+:host .cards .card.device-type-climate .detail strong {font-size:14px;}
+:host .cards .card.device-type-climate .detail small {font-size:11px;}
+:host .cards.compact-grid .card.device-type-climate {padding:4px 9px;}
+:host .cards.compact-grid .card.device-type-climate .climate-current {font-size:21px;line-height:1;}
+:host .cards.compact-grid .card.device-type-climate .detail strong {font-size:11px;line-height:1;}
+:host .cards.compact-grid .card.device-type-climate .detail small {font-size:9px;line-height:1;}
+:host([data-theme="light"]) #screen-power.screen-on, :host([data-theme="light"]) #screen-power.screen-off {
+  color: #fff;
+}
+:host .tabs {grid-template-columns:repeat(4,minmax(0,1fr));}
+:host .tab {min-width:0;padding:0 3px;font-size:clamp(10px,1.6vw,13px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+:host .cards.devices {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:8px;
+  height:100%;min-height:0;align-content:stretch;
+}
+:host .cards.devices .card {
+  width:100%;height:100%;min-width:0;min-height:0;
+  display:flex;flex-direction:column;align-items:flex-start;
+  justify-content:space-between;gap:4px;
+  padding:11px 9px 9px;border-radius:16px;
+  overflow:hidden;
+}
+:host .cards.devices .card .symbol {width:34px;height:34px;flex:none;}
+:host .cards.devices .card .symbol svg {width:20px;height:20px;}
+:host .cards.devices .card .detail {flex:none;width:100%;min-width:0;gap:3px;padding-right:1px;}
+:host .cards.devices .card .detail strong {
+  font-size:clamp(10px,1.53vw,12px);line-height:1.18;
+  overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;
+  -webkit-line-clamp:2;overflow:hidden;
+}
+:host .cards.devices .card .detail small {
+  font-size:10px;line-height:1.16;display:block;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+:host .cards.devices .card.device-type-climate {padding:11px 8px 9px;}
+:host .cards.devices .card.device-type-climate .climate-current {
+  font-size:clamp(23px,3.8vw,34px);line-height:1.1;
+}
+:host .cards.devices .card.device-type-climate .detail strong {font-size:11px;line-height:1.12;}
+:host .cards.devices .card.device-type-climate .detail small {font-size:10px;line-height:1.15;}
+/* The action rows are flex lists, not grids. Scroll ownership lives in v41 CSS. */
+:host .action-grid {
+  height:100%;min-height:0;
+  display:flex;flex-direction:column;gap:7px;
+  touch-action:pan-y;
+}
+:host .action-card {
+  min-width:0;min-height:0;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-radius:18px;padding:12px 13px;
+  background:rgba(118,131,141,.28);border:1px solid rgba(255,255,255,.24);
+  color:#fff;backdrop-filter:blur(12px) saturate(1.04);-webkit-backdrop-filter:blur(12px) saturate(1.04);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+}
+:host([data-theme="light"]) .action-card {background:linear-gradient(180deg, rgba(89,102,114,.45), rgba(89,96,102,.40));}
+:host .action-title {display:flex;align-items:center;gap:9px;min-width:0;}
+:host .action-icon {flex:none;display:grid;place-items:center;
+  width:30px;height:30px;border-radius:10px;background:rgba(20,24,29,.32);
+  color:#f6f6f6;font-size:19px;}
+:host .automation-card.is-enabled .action-icon {background:#dce9f2;color:#388ecb;}
+:host .action-card.unavailable .action-icon {background:rgba(20,24,29,.32);color:#f6f6f6;}
+:host .action-title strong {font-size:13px;line-height:1.22;overflow-wrap:anywhere;}
+:host .action-bottom {display:flex;flex-direction:column;gap:6px;min-width:0;}
+:host .action-status {color:#ffffffbc;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+:host .action-bottom button {
+  min-height:33px;padding:5px 8px;border-radius:11px;background:rgba(255,255,255,.17);
+  color:#fff;font-size:12px;font-weight:750;touch-action:manipulation;
+}
+:host .scene-card .action-bottom button {background:rgba(231,183,69,.82);color:#302b21;}
+:host .automation-card.is-enabled .action-bottom button {background:#cf7175;color:#fff;}
+:host .action-bottom button:disabled {opacity:.4;cursor:default;}
+:host .camera-image {display:block;width:100%;height:100%;object-fit:contain;}
+:host .camera-loading {font-size:12px;color:#c9d5e1;text-align:center;padding:15px;}
+:host .camera-hint {pointer-events:none;position:absolute;bottom:2px;left:4px;right:4px;
+  text-align:center;font-size:9px;color:#fff;background:#1119;border-radius:4px;}
+:host .camera-hint:empty {display:none;}
+:host .camera-switch-indicator {width:27px;height:15px;flex:none;border-radius:12px;
+  background:#89939d;position:relative;}
+:host .camera-switch-indicator::after {content:"";position:absolute;left:2px;top:2px;
+  width:11px;height:11px;background:white;border-radius:50%;transition:transform .15s;}
+:host .camera-switches button.active .camera-switch-indicator {background:#2dbb8f;}
+:host .camera-switches button.active .camera-switch-indicator::after {transform:translateX(12px);}
+@media(max-height:410px) {:host .cards.devices {gap:6px;}
+:host .cards.devices .card {padding:6px 7px;}
+:host .cards.devices .card .symbol {width:27px;height:27px;}}
+:host .camera-hint.camera-failed {position:absolute;inset:0;margin:auto;display:grid;place-items:center;background:#071019;color:#dbe7f5;font-size:12px;}
+:host, :host * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+:host input:not([type="range"]), :host textarea, :host [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+:host([data-theme="light"]) .tab.active {
+  background:rgba(255,255,255,.94);
+  color:#233447;
+  border:1px solid rgba(255,255,255,.60);
+  box-shadow:0 2px 11px rgba(24,42,61,.11),inset 0 1px 0 rgba(255,255,255,.86);
+}
+:host([data-theme="light"]) .cards .card.on {
+  background:linear-gradient(155deg,rgba(255,255,255,.94),rgba(245,248,251,.87));
+  border-color:rgba(255,255,255,.72);
+  box-shadow:0 5px 18px rgba(30,46,62,.14),inset 0 1px 0 rgba(255,255,255,.88);
+}
+:host([data-theme="dark"]) .tab.active {
+  background:rgba(244,248,255,.30);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.30);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 2px 8px rgba(0,0,0,.11);
+}
+:host([data-theme="dark"]) .cards .card.on {
+  background:linear-gradient(155deg,rgba(225,236,245,.36),rgba(211,224,236,.31));
+  border:1px solid rgba(255,255,255,.38);
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.21),0 4px 15px rgba(0,0,0,.14);
+}
+:host([data-theme="dark"]) .cards .card.on .detail strong {color:#fff;}
+:host([data-theme="dark"]) .cards .card.on .detail small {color:rgba(249,252,255,.84);}
+:host([data-theme="dark"]) .cards .card.on .climate-current {color:#fff;}
+:host .side, :host .tabs, :host .action-card, :host .head-action, :host .vega-filter-action, :host .header-nowplaying {
+  border-color:rgba(173,214,255,.36)!important;
+  box-shadow:0 0 8px rgba(115,175,255,.12),0 0 16px rgba(117,116,230,.07),inset 0 1px 0 rgba(255,255,255,.18)!important;
+  -webkit-backdrop-filter:blur(15px) saturate(1.10);backdrop-filter:blur(15px) saturate(1.10);
+}
+/* Side navigation and inactive device cards share the same glass pigment in both themes.
+   Active room and active tab remain distinct to signal selection. */
+:host([data-theme="dark"]) .side, :host([data-theme="dark"]) .tabs,
+:host([data-theme="light"]) .side, :host([data-theme="light"]) .tabs {
+  background:var(--vega-card-shade);color:#fff;
+  backdrop-filter:blur(15px) saturate(.92);
+  -webkit-backdrop-filter:blur(15px) saturate(.92);
+}
+:host([data-theme="dark"]) .action-card,
+:host([data-theme="dark"]) .head-action,
+:host([data-theme="dark"]) .vega-filter-action {
+  background:linear-gradient(140deg,rgba(50,74,98,.68),rgba(27,39,56,.75));color:#fff;
+}
+:host([data-theme="light"]) .action-card,
+:host([data-theme="light"]) .head-action,
+:host([data-theme="light"]) .vega-filter-action {
+  background:linear-gradient(140deg,rgba(90,115,135,.53),rgba(65,84,106,.55));color:#fff;
+}
+
+:host .action-grid .action-card {
+  flex:0 0 59px;min-height:59px;display:flex;flex-direction:row;align-items:center;gap:12px;
+  padding:8px 12px;border-radius:12px;overflow:hidden;
+}
+:host .action-grid .action-title {flex:1;min-width:0;gap:12px}
+:host .action-grid .action-title strong {font-size:13px;line-height:1.25;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+:host .action-grid .action-bottom {flex:none;flex-direction:row;align-items:center;gap:9px}
+:host .action-grid .action-status {max-width:94px;font-size:10px}
+:host .action-grid .action-bottom button {width:83px;height:34px;min-height:34px;padding:5px 7px;border-radius:10px}
+:host .action-grid .scene-card .action-bottom button {background:rgba(91,144,218,.65);color:#fff}
+:host .action-grid .automation-card.is-enabled .action-bottom button {background:rgba(103,170,214,.62)}
+:host .action-grid .automation-card .action-bottom button {background:rgba(255,255,255,.15)}
+:host .cards .card, .action-card {border-radius:15px}
+:host .confirm-overlay {}
+:host .confirm-dialog {border-radius:14px}
+:host .cards .card, :host .action-card {-webkit-backdrop-filter:blur(10px) saturate(1.06);backdrop-filter:blur(10px) saturate(1.06)}
+
+/* VEGA HOME: entire Home is one atomic composited surface during B -> A.
+   Screensaver controller swaps order under cover and fades only the source. */
+:host .app.vega-home-in-lock{pointer-events:none!important;}
+/* Camera: full-height grid tiles, contained frames (16:9 letterboxing)
+   and exactly one continuous MJPEG stream in the enlarged dialog. */
+:host .vega-camera-shell{position:relative;width:100%;height:100%;min-height:0;display:flex;flex-direction:column;}
+:host .vega-camera-list{flex:1;min-height:0;width:100%;}
+:host .vega-camera-grid{min-height:100%;}
+:host .vega-camera-grid .vega-camera-launch{
+  grid-row:span 2;min-height:0;min-width:0;width:100%;height:100%;
+  display:flex;flex-direction:column;gap:7px;align-items:stretch;justify-content:flex-start;
+  box-sizing:border-box;padding:var(--vega-pad,11px);border:0;
+  border-radius:calc(var(--vega-tile,188px) * .095);background:var(--vega-card-shade);
+  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);color:#fff;
+  text-align:start;touch-action:manipulation;overflow:hidden;cursor:pointer;
+}
+:host .vega-camera-photo{position:relative;display:grid;place-items:center;flex:1;min-height:0;width:100%;overflow:hidden;background:#05080b;border-radius:10px;}
+:host .vega-camera-photo .camera-image{display:block;width:100%;height:100%;object-fit:contain;background:#000;}
+:host .vega-camera-label{flex:none;display:flex;align-items:center;gap:6px;min-width:0;line-height:1.15;font-size:var(--vega-title,13px);}
+:host .vega-camera-label strong{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;}
+:host .vega-camera-label [data-cam-signal]{font-size:10px;opacity:.75;max-width:35%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+:host .vega-camera-icon{display:inline-grid;place-items:center;flex:none;width:21px;height:21px;}
+:host .vega-camera-icon .vega-device-glyph{width:20px;height:20px;}
+:host .vega-camera-popover{display:none;}
+:host .vega-camera-shell.is-expanded{z-index:730;}
+:host .vega-camera-shell.is-expanded:before{content:"";position:fixed;inset:0;z-index:729;background:rgba(8,14,23,.69);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+:host .vega-camera-shell.is-expanded .vega-camera-popover{
+  position:fixed;z-index:730;inset:max(8px,var(--vega-safe-top)) 10px max(8px,env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:9px;box-sizing:border-box;
+  width:min(510px,calc(100vw - 32px));height:min(440px,calc(100dvh - 32px));max-height:calc(100dvh - 32px);
+  margin:auto;padding:clamp(8px,1.5vw,18px);border:1px solid #ffffff50;
+  border-radius:18px;background:rgba(29,44,59,.95);color:#fff;overflow:hidden;
+  box-shadow:0 20px 80px #0008;
+}
+:host .vega-camera-top{min-height:32px;flex:none;display:flex;align-items:center;gap:9px;font-size:14px;}
+:host .vega-camera-top strong{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+:host .vega-camera-top button{width:38px;height:34px;min-height:34px;border:0;border-radius:9px;background:#ffffff26;color:#fff;font-size:23px;}
+:host .vega-camera-screen{flex:1;min-height:0;display:grid;place-items:center;overflow:hidden;border-radius:11px;background:#05080b;}
+:host .vega-camera-screen .camera-image{width:100%;height:100%;max-height:100%;object-fit:contain;}
+:host .vega-camera-controls{flex:none;min-height:36px;display:flex;justify-content:flex-end;}
+:host .vega-camera-controls button{display:flex;align-items:center;gap:9px;min-height:35px;padding:6px 12px;border:1px solid #ffffff30;border-radius:10px;background:#ffffff22;color:white;font-size:12px;}
+:host .vega-camera-controls button.active .camera-switch-indicator{background:#5fd4a9;}
+:host .vega-camera-shell button:disabled{opacity:.48;}
+@media(max-width:600px){:host .vega-camera-shell.is-expanded .vega-camera-popover{inset:8px;max-height:calc(100dvh - 16px);height:min(400px,calc(100dvh - 16px));width:min(510px,calc(100vw - 16px));padding:8px;border-radius:12px;}}
+/* 145px sidebar + 8px gap + 18px padding + 308px for three tiles. */
+:host #screen-power[hidden], :host([data-vega-phone]) [data-vega-lock-setting] {display:none!important;}
+@media (max-width:478.99px) {
+  :host {--vega-compact-rooms:1;}
+  :host .app {grid-template-columns:minmax(0,1fr);}
+  :host .side, :host #room-title-text {display:none;}
+  :host .room-title {display:block;position:relative;}
+  :host #room-menu-toggle {
+    display:inline-flex;align-items:center;gap:7px;max-width:100%;padding:0;background:none;
+    font:inherit;letter-spacing:inherit;text-shadow:inherit;text-align:start;
+    white-space:nowrap;overflow:hidden;
+  }
+  :host #room-menu-toggle .room-menu-label{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  :host #room-menu-toggle .room-menu-chevron{display:block;flex:none;font-size:.8em;line-height:1;transform:translateY(-2px);transform-origin:center;transition:transform 160ms ease;}
+  :host #room-menu-toggle[aria-expanded="true"] .room-menu-chevron{transform:translateY(1px) rotate(180deg);}
+  :host .room-menu-scrim:not([hidden]) {
+    display:block;position:fixed;inset:0;z-index:4;background:rgba(9,19,29,.16);
+    -webkit-backdrop-filter:none;backdrop-filter:none;
+  }
+  :host .room-menu:not([hidden]) {
+    display:grid;position:absolute;inset-inline-start:0;top:calc(100% + 6px);
+    width:min(240px,calc(100vw - 28px));max-height:min(340px,calc(100vh - 105px - var(--vega-safe-top)));
+    max-height:min(340px,calc(100dvh - 105px - var(--vega-safe-top)));
+    overflow-y:auto;overscroll-behavior:contain;padding:5px;border:1px solid #ffffff40;
+    border-radius:15px;background:rgba(24,29,34,.96);color:#fff;
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+    box-shadow:0 9px 28px #10203040;
+  }
+  :host .room-menu button {
+    min-height:42px;padding:6px 12px;border-radius:9px;background:transparent;
+    color:#fff;font-size:14px;text-align:start;overflow-wrap:anywhere;
+  }
+  :host .room-menu button[aria-current="true"] {background:#ffffff23;font-weight:650;}
+}
+@media (max-width:478.99px) and (orientation:portrait),
+       (max-width:600px) and (pointer:coarse),
+       (max-width:950px) and (max-height:460px) and (pointer:coarse) {
+  :host {--vega-safe-top:max(12px,env(safe-area-inset-top,0px));}
+}

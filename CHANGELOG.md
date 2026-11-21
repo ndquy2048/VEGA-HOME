@@ -1,5 +1,12 @@
 # VEGA HOME releases
 
+## 1.0.2 — iOS light popup stability
+
+- Avoid iOS WebKit background flicker when controlling a light brightness slider by using a stable tinted modal underlay rather than sampling multiple backdrop-blur layers.
+- Preserve the existing blurred-glass modal appearance for non-iOS platforms and other popup types.
+- No changes to light service commands, layouts, settings, or saved configurations.
+- Updated displayed version labels and frontend cache identifier to 1.0.2.
+
 ## 1.0.1 — Documentation and release metadata
 
 - Removed the oversized logo image from the repository introduction.
