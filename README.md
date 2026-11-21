@@ -1,6 +1,6 @@
 # VEGA HOME
 
-**VEGA HOME 1.0.2** is an independent smart-home dashboard for [Home Assistant](https://www.home-assistant.io/), with a visual design inspired by Apple Home. It works with devices and entities already connected to Home Assistant; **Apple Home, HomeKit and HomeKit-compatible devices are not required**.
+**VEGA HOME 2.0.0** is an independent smart-home dashboard for [Home Assistant](https://www.home-assistant.io/), with a visual design inspired by Apple Home. It works with devices and entities already connected to Home Assistant; **Apple Home, HomeKit and HomeKit-compatible devices are not required**.
 
 [Installation guide](docs/INSTALLATION.md) · [FAQ](docs/FAQ.md) · [Privacy & network](docs/PRIVACY.md)
 

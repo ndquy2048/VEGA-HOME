@@ -1,4 +1,4 @@
-import {LANGUAGE_META,DEFAULT_WORDS} from './vega-language-data.js?v=v102c1';
+import {LANGUAGE_META,DEFAULT_WORDS} from './vega-language-data.js?v=v200c1';
 
 export {LANGUAGE_META};
 export const LOCALE_WORDS=Object.assign(Object.create(null),{en:DEFAULT_WORDS});
@@ -35,7 +35,7 @@ export async function ensureLanguage(code){
     const controller=new AbortController();
     const timer=setTimeout(()=>controller.abort(),8000);
     try{
-      const response=await fetch(`/vega_home_static/languages/${code}.json?v=v102c1`,{
+      const response=await fetch(`/vega_home_static/languages/${code}.json?v=v200c1`,{
         cache:'force-cache',signal:controller.signal
       });
       if(!response.ok)throw Error('Language HTTP '+response.status);

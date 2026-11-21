@@ -1,5 +1,12 @@
 # VEGA HOME releases
 
+## 2.0.0 — VEGA HOME 2 release milestone
+
+- Start the VEGA HOME 2 release series from the fully verified 1.0.2 source.
+- Keep the Apple Home-inspired interface, iOS light-popup stability fix, device controls, and existing settings unchanged.
+- Update integration version metadata, displayed version labels, all 65 frontend language packs, and frontend asset cache identifiers to 2.0.0.
+- No new features, breaking changes, or configuration migration are introduced by this version-only release.
+
 ## 1.0.2 — iOS light popup stability
 
 - Avoid iOS WebKit background flicker when controlling a light brightness slider by using a stable tinted modal underlay rather than sampling multiple backdrop-blur layers.

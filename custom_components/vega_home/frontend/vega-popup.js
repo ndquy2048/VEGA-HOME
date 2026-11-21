@@ -1,5 +1,5 @@
 /* VEGA HOME: custom dialogs for lights, fans, climate and simple switches. */
-import {fanCapabilities} from './vega-device-model.js?v=v102c1';
+import {fanCapabilities} from './vega-device-model.js?v=v200c1';
 
 // Display labels are localized; service values remain the original HA values.
 const LIGHT_COLORS = [
@@ -63,7 +63,7 @@ export function installVegaPopup(panel) {
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = '/vega_home_static/vega-popup.css?v=v102c1';
+  css.href = '/vega_home_static/vega-popup.css?v=v200c1';
   root.append(css);
 
   const overlay = document.createElement('div');

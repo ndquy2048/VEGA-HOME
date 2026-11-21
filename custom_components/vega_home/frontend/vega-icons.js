@@ -1,4 +1,4 @@
-import {MDI_CATALOG,MDI_PATHS,MDI_READY as DATA_READY} from './vega-mdi-data.js?v=v102c1';
+import {MDI_CATALOG,MDI_PATHS,MDI_READY as DATA_READY} from './vega-mdi-data.js?v=v200c1';
 
 /* One bundled registry for every room, tile, popup and icon chooser. */
 export const MDI_KEYS = new Set(MDI_CATALOG.map(([name])=>`mdi:${name}`));
