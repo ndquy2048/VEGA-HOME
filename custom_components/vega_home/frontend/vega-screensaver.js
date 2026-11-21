@@ -1,8 +1,8 @@
-import {expandImageURL,randomImageSource} from './vega-wallpaper.js?v=v200c1';
+import {expandImageURL,randomImageSource} from './vega-wallpaper.js?v=v201c1';
 
 /* VEGA HOME: independent A/B/C surface coordinator; pointer-safe media seek unchanged. */
 
-import {installLockScreenPower} from './vega-screen-power.js?v=v200c1';
+import {installLockScreenPower} from './vega-screen-power.js?v=v201c1';
 export function installVegaScreensaver(panel) {
   if (panel._screensaver) return panel._screensaver;
 

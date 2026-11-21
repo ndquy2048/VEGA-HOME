@@ -9,7 +9,7 @@ export const MDI_READY = (async()=>{
   const controller = new AbortController();
   const timer = setTimeout(()=>controller.abort(), 8000);
   try {
-    const response = await fetch('/vega_home_static/mdi-icons.json?v=v200c1', {signal:controller.signal, cache:'force-cache'});
+    const response = await fetch('/vega_home_static/mdi-icons.json?v=v201c1', {signal:controller.signal, cache:'force-cache'});
     if(!response.ok)throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if(data?.format!=='vega-mdi-v1'||!Array.isArray(data.icons)||data.icons.length!==2562)

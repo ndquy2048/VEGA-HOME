@@ -1,5 +1,5 @@
 /* VEGA HOME: custom dialogs for lights, fans, climate and simple switches. */
-import {fanCapabilities} from './vega-device-model.js?v=v200c1';
+import {fanCapabilities} from './vega-device-model.js?v=v201c1';
 
 // Display labels are localized; service values remain the original HA values.
 const LIGHT_COLORS = [
@@ -58,12 +58,9 @@ export function installVegaPopup(panel) {
   if (panel._popup) return panel._popup;
   const root = panel.shadowRoot;
   const t = (key, vars) => panel.t(key, vars);
-  // All browsers on iOS use WebKit. Include iPads requesting a desktop UA.
-  const iosWebKit = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = '/vega_home_static/vega-popup.css?v=v200c1';
+  css.href = '/vega_home_static/vega-popup.css?v=v201c1';
   root.append(css);
 
   const overlay = document.createElement('div');
@@ -256,17 +253,21 @@ export function installVegaPopup(panel) {
     if(input.value!==display)input.value=display;
     const output=body.querySelector(`[data-output="${kind}"]`);
     if(output)output.textContent=display+(kind==='kelvin'?' K':'%');
-    if(kind==='brightness')input.closest('.ap-brightness-control')?.style.setProperty('--level',`${display}%`);
+    if(kind==='brightness'){
+      const fill=input.closest('.ap-brightness-control')?.querySelector('.ap-brightness-fill');
+      if(fill)fill.style.transform=`scaleY(${clamp(Number(value),1,100)/100})`;
+    }
   }
   function applyRangeFence(){
     if(!sliderPreview)return;
-    if(Date.now()>sliderPreview.until){sliderPreview=null;return;}
+    const pending=busy||queuedCommand||sliderDrag;
+    if(Date.now()>sliderPreview.until&&!pending){sliderPreview=null;return;}
     const e=viewEntity();
     const actual=sliderPreview.kind==='brightness'
       ?Math.round(Number(e?.attributes?.brightness||0)/255*100)
       :Number(e?.attributes?.[sliderPreview.kind==='fan-percentage'?'percentage':'color_temp_kelvin']);
     // ACK of an earlier 52% cannot replace the user's newer 87% intent.
-    if(!sliderDrag && Math.abs(actual-sliderPreview.value)<1){sliderPreview=null;return;}
+    if(!pending && Math.abs(actual-sliderPreview.value)<1){sliderPreview=null;return;}
     paintRange(sliderPreview.kind,sliderPreview.value);
   }
 
@@ -467,11 +468,11 @@ export function installVegaPopup(panel) {
         </button>
       </section>`;
     }
-    const slider = dim ? `<div class="ap-brightness-control" style="--level:${pct}%">
+    const slider = dim ? `<div class="ap-brightness-control">
       <div class="ap-brightness-title"><span>${escapeHTML(t('popup.brightness'))}</span>
         <output data-output="brightness">${pct}%</output></div>
       <div class="ap-brightness-shell">
-        <div class="ap-brightness-fill" aria-hidden="true"></div>
+        <div class="ap-brightness-fill" aria-hidden="true" style="transform:scaleY(${pct/100})"></div>
         <svg class="ap-brightness-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/>
           <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l-1.42 1.42"/></svg>
@@ -530,7 +531,7 @@ export function installVegaPopup(panel) {
     // three pieces — thumb/input, text and fill — are owned by the local value.
     // Patching the parent style first caused the visible 52→83→52 flash.
     if (existing.matches('.ap-brightness-control') && sliderPreview?.kind==='brightness' &&
-        (sliderDrag?.kind==='brightness'||Date.now()<sliderPreview.until))return;
+        (sliderDrag?.kind==='brightness'||busy||queuedCommand||Date.now()<sliderPreview.until))return;
     const oldAttrs = [...existing.attributes];
     for (const attr of oldAttrs) {
       // The rotor controller owns its inline phase and stopped angle.
@@ -664,9 +665,11 @@ export function installVegaPopup(panel) {
       if (!destroyed && serial===token) {
         if(succeeded && shouldClose){close();return;}
         busy = false;
+        const next=queuedCommand;queuedCommand=null;
+        if(sliderPreview?.kind==='brightness' && !next)
+          sliderPreview.until=Math.max(sliderPreview.until,Date.now()+3500);
         if(errorText) {optimistic.clear();clearTimeout(optimisticTimer);}
         render(true);
-        const next=queuedCommand;queuedCommand=null;
         if(next && next.serial===token) void service(next.domain,next.action,next.data,next.id);
       }
     }
@@ -950,9 +953,8 @@ export function installVegaPopup(panel) {
       if(current?.entity_id!==d.entity_id)panel.clearFanMotion(overlay);
       if (overlay.hidden) focusBefore = root.activeElement;
       clearTimeout(closeTimer);clearTimeout(optimisticTimer);optimistic.clear();queuedCommand=null;
-      const attributes=panel._hass?.states?.[d.entity_id]?.attributes||{};
-      const staticIOSLight=iosWebKit&&type==='light'&&supportsDimming(attributes);
-      panel._surface?.open('device',18,{mode:staticIOSLight?'static-ios-light':'glass'});
+      // One stable blurred backdrop for every popup, including dimmers on iOS.
+      panel._surface?.open('device',18);
       current = d; kind = type; binary=false;
       token++; busy=false; dragging=false;sliderDrag=null;sliderPreview=null; view='main';wheelActive=false;lastRendered=''; errorText='';
       title.textContent=panel.deviceName(d) || d.entity_id;

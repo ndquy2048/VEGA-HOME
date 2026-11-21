@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>Vega popup test fixture (mock Home Assistant)</title>
+<style>html,body{margin:0;width:100%;height:100%;background:#243348;font-family:Arial,sans-serif;color:white}#host{display:block;width:100vw;height:100dvh}</style></head><body><div id="host"></div><script type="module">
+import {installVegaPopup} from '../custom_components/vega_home/frontend/vega-popup.js';
+import {installVegaSurface} from '../custom_components/vega_home/frontend/vega-surface.js';
+const host=document.querySelector('#host'); const root=host.attachShadow({mode:'open'});
+root.innerHTML=`<link rel="stylesheet" href="/vega_home_static/vega-v41.css"><div class="app"><div class="tiles" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:20px;height:80vh;box-sizing:border-box">${Array.from({length:6},(_,i)=>`<div style="border-radius:28px;backdrop-filter:blur(15px);background:linear-gradient(${i*17}deg,#274b72d9,#4089a477);font-size:24px;padding:18px">Room ${i+1}</div>`).join('')}</div></div>`;
+const state={
+ 'light.dimmer':{entity_id:'light.dimmer',state:'on',attributes:{supported_color_modes:['brightness'],brightness:128}},
+ 'light.color':{entity_id:'light.color',state:'on',attributes:{supported_color_modes:['hs'],brightness:128,hs_color:[110,100]}},
+ 'switch.test':{entity_id:'switch.test',state:'on',attributes:{}},
+ 'climate.test':{entity_id:'climate.test',state:'cool',attributes:{hvac_modes:['off','cool','heat'],fan_modes:['auto','high'],fan_mode:'auto',temperature:24,current_temperature:25}}
+};
+const data={calls:[],pending:[],delay:false};
+const hass={states:state,callService:(domain,action,payload)=>{
+ data.calls.push({domain,action,payload});
+ if(!data.delay)return Promise.resolve();
+ return new Promise((resolve,reject)=>data.pending.push({resolve,reject,domain,action,payload}));
+}};
+const panel={shadowRoot:root,_hass:hass,t:key=>key,language:'en',_screensaver:{suspend(){},resume(){}},_v41:{endTileResize(){}},tab:0,
+ setRoomMenu(){},updateHomeStates(){},deviceIcon:()=>'<span class="icon">◉</span>',deviceKind:d=>d.entity_id.split('.')[0],
+ devicePaletteStyle:()=>'',deviceName:d=>d.entity_id,lastDeviceSettings:()=>({attributes:{brightness:128},state:'on'}),
+ rememberDeviceState(){},syncFanRotor(){},clearFanMotion(){},climateControls:()=>[],requiresOffConfirmation:()=>false,
+ deviceEntries:()=>[],noteDeviceCommand(){},
+};
+panel._surface=installVegaSurface(panel);panel._popup=installVegaPopup(panel);
+window.vegaFixture={root,panel,data,state,popup:panel._popup,
+ open(type){const id=type==='light'?'light.dimmer':type==='color'?'light.color':type==='switch'?'switch.test':'climate.test';panel._popup.open({entity_id:id});return id;},
+ push(id,brightness){state[id].attributes.brightness=Math.round(brightness*255/100);panel._popup.onHass();},
+ resolve(){const v=data.pending.shift();if(v)v.resolve();return !!v;},
+ reject(){const v=data.pending.shift();if(v)v.reject(new Error('fixture failure'));return !!v;},
+ drag(value,pointerId=1){const shell=root.querySelector('.ap-brightness-shell');if(!shell)throw new Error('no slider');const r=shell.getBoundingClientRect();const y=r.bottom-(value-1)/99*r.height;
+ shell.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId,button:0,clientY:y}));
+ shell.dispatchEvent(new PointerEvent('pointermove',{bubbles:true,pointerId,button:0,clientY:y}));
+ shell.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,pointerId,button:0,clientY:y}));},
+ value(){return Number(root.querySelector('input[data-range="brightness"]')?.value)},
+ fill(){return getComputedStyle(root.querySelector('.ap-brightness-fill')).transform},
+ backdrop(){const b=root.querySelector('.vega-modal-backdrop');return {blur:getComputedStyle(b).backdropFilter,webKit:getComputedStyle(b).webkitBackdropFilter,mode:b.dataset.mode||'',inline:b.getAttribute('style')};}
+};
+</script></body></html>

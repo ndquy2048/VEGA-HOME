@@ -20,20 +20,18 @@ export function installVegaSurface(panel) {
       if(!(panel.tab===1&&panel.cameraConfig?.()) && !panel._musicPage?.isOpen?.()) panel._screensaver?.resume?.();
     }
   }
-  // An opaque tint avoids repeated WebKit sampling of nested blurred tiles
-  // while an iOS light dimmer repaints on each pointer movement. Other modals
-  // retain the existing glass backdrop and transition.
+  // A single stationary viewport backdrop remains mounted while modal
+  // content updates. No per-pointer backdrop style changes are permitted.
   function syncBackdrop(){
-    const {blur,mode}=[...active.values()].at(-1)||{blur:18,mode:'glass'};
+    const {blur}=[...active.values()].at(-1)||{blur:18};
     backdrop.style.setProperty('--vega-modal-blur',`${blur}px`);
-    backdrop.dataset.mode=mode;
   }
-  function open(id, blur=18, {mode='glass'}={}){
+  function open(id, blur=18){
     if(disposed) return;
     const alreadyActive=active.size>0;focusAfterClose=null;
     panel.setRoomMenu?.(false);
     panel._v41?.endTileResize();
-    active.delete(id);active.set(id, {blur,mode});
+    active.delete(id);active.set(id, {blur});
     ++epoch;clearTimeout(hideTimer);cancelAnimationFrame(raf);
     const first=backdrop.hidden;
     backdrop.hidden=false;

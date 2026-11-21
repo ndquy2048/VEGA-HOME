@@ -4,7 +4,7 @@
 export function installVegaMusicPage(panel) {
   if(panel._musicPage)return panel._musicPage;
   const root=panel.shadowRoot;
-  const css=document.createElement('link');css.rel='stylesheet';css.href='/vega_home_static/vega-music-page.css?v=v200c1';root.append(css);
+  const css=document.createElement('link');css.rel='stylesheet';css.href='/vega_home_static/vega-music-page.css?v=v201c1';root.append(css);
   const page=document.createElement('section');page.className='amp-page';page.hidden=true;
   page.innerHTML=`<div class="amp-content"><header class="amp-header">
     <button type="button" class="amp-home" data-music-action="back" data-i18n-aria="music.back" aria-label="">‹</button>

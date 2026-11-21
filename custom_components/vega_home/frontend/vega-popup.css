@@ -170,7 +170,7 @@
 .ap-brightness-title{display:flex;flex-direction:column;align-items:center;gap:1px;font-size:10px;font-weight:750;white-space:nowrap;}
 .ap-brightness-title output{font-size:14px;font-weight:800;color:inherit;}
 .ap-brightness-shell{position:relative;flex:1;min-height:184px;touch-action:none;cursor:ns-resize;user-select:none;-webkit-user-select:none;overflow:hidden;border-radius:25px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.24);box-shadow:inset 0 1px 6px #00000013, 0 2px 8px #00000008;}
-.ap-brightness-fill{position:absolute;bottom:0;left:0;right:0;height:var(--level);background:linear-gradient(0deg,#ffc52c,#ffdb59);border-radius:24px 24px 0 0;pointer-events:none;}
+.ap-brightness-fill{position:absolute;inset:0;background:linear-gradient(0deg,#ffc52c,#ffdb59);border-radius:24px 24px 0 0;pointer-events:none;transform-origin:center bottom;transform:scaleY(0);will-change:transform;backface-visibility:hidden;}
 .ap-brightness-sun{position:absolute;left:50%;bottom:13%;transform:translateX(-50%);width:29px;height:29px;color:white;filter:drop-shadow(0 1px 2px #ba850050);pointer-events:none;}
 .ap-brightness-slider{position:absolute;inset:0;width:100%;height:100%;padding:0;margin:0;writing-mode:vertical-lr;direction:rtl;appearance:none;-webkit-appearance:none;opacity:0;pointer-events:none;touch-action:none;border:0;background:none;}
 .ap-brightness-slider::-webkit-slider-thumb{width:76px;height:16px;border:0;background:transparent;box-shadow:none;}

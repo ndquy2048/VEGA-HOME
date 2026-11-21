@@ -1,5 +1,13 @@
 # VEGA HOME releases
 
+## 2.0.1 — Popup compositing stability
+
+- Restore the shared blurred background for dimmable-light popups on iPhone/iPad.
+- Render the brightness fill as an isolated, transform-driven layer so dragging does not resize or repaint the slider surface.
+- Keep the latest brightness intent visible while a prior Home Assistant service command is still in flight.
+- Retain all device, camera, climate, speaker and settings layouts and saved configuration formats.
+- Update asset cache identifiers to prevent stale frontend resources after upgrading.
+
 ## 2.0.0 — VEGA HOME 2 release milestone
 
 - Start the VEGA HOME 2 release series from the fully verified 1.0.2 source.

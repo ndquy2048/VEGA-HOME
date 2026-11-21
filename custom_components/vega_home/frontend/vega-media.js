@@ -4,7 +4,7 @@ export function installVegaMedia(panel) {
   const root = panel.shadowRoot;
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = '/vega_home_static/vega-media.css?v=v200c1';
+  css.href = '/vega_home_static/vega-media.css?v=v201c1';
   root.append(css);
   const overlay = document.createElement('div');
   overlay.className = 'am-overlay';

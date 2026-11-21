@@ -1,6 +1,6 @@
 /* Optional global entry. Register with frontend.extra_module_url, not Lovelace resources.
  * One bounded startup check; no ongoing polling, route interception or server writes. */
-import {VEGA_PANEL,defaultPanelField,readDeviceDefault,systemDashboardPath,consumeStartupSkip} from './vega-navigation.js?v=v200c1';
+import {VEGA_PANEL,defaultPanelField,readDeviceDefault,systemDashboardPath,consumeStartupSkip} from './vega-navigation.js?v=v201c1';
 if(window.__vegaHomeDeviceStartup!==1){
   window.__vegaHomeDeviceStartup=1;
   let timer=0,tries=0,stopped=false;
