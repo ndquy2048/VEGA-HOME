@@ -1,6 +1,6 @@
-import {installVegaWallpaper} from './vega-wallpaper.js?v=v100c7';
-import {installVegaNavigation} from './vega-navigation.js?v=v100c7';
-import {installVegaSystemMedia} from './vega-system-media.js?v=v100c7';
+import {installVegaWallpaper} from './vega-wallpaper.js?v=v102c1';
+import {installVegaNavigation} from './vega-navigation.js?v=v102c1';
+import {installVegaSystemMedia} from './vega-system-media.js?v=v102c1';
 /* VEGA HOME: responsive tiles and appearance/startup settings. */
 export function installVegaAppearance(panel) {
   const root=panel.shadowRoot;

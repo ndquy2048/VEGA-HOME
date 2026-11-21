@@ -20,16 +20,24 @@ export function installVegaSurface(panel) {
       if(!(panel.tab===1&&panel.cameraConfig?.()) && !panel._musicPage?.isOpen?.()) panel._screensaver?.resume?.();
     }
   }
-  function open(id, blur=18){
+  // An opaque tint avoids repeated WebKit sampling of nested blurred tiles
+  // while an iOS light dimmer repaints on each pointer movement. Other modals
+  // retain the existing glass backdrop and transition.
+  function syncBackdrop(){
+    const {blur,mode}=[...active.values()].at(-1)||{blur:18,mode:'glass'};
+    backdrop.style.setProperty('--vega-modal-blur',`${blur}px`);
+    backdrop.dataset.mode=mode;
+  }
+  function open(id, blur=18, {mode='glass'}={}){
     if(disposed) return;
     const alreadyActive=active.size>0;focusAfterClose=null;
     panel.setRoomMenu?.(false);
     panel._v41?.endTileResize();
-    active.delete(id);active.set(id, blur);
+    active.delete(id);active.set(id, {blur,mode});
     ++epoch;clearTimeout(hideTimer);cancelAnimationFrame(raf);
     const first=backdrop.hidden;
     backdrop.hidden=false;
-    backdrop.style.setProperty('--vega-modal-blur',`${[...active.values()].at(-1)}px`);
+    syncBackdrop();
     if(first){
       backdrop.classList.remove('is-visible');
       void backdrop.offsetWidth;
@@ -42,7 +50,7 @@ export function installVegaSurface(panel) {
     if(disposed||!active.has(id))return;
     active.delete(id);
     ++epoch;cancelAnimationFrame(raf);clearTimeout(hideTimer);
-    if(active.size){backdrop.style.setProperty('--vega-modal-blur',`${[...active.values()].at(-1)}px`);return;}
+    if(active.size){syncBackdrop();return;}
     backdrop.classList.remove('is-visible');
     const current=epoch;
     const duration=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?0:235;

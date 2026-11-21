@@ -1,6 +1,6 @@
-import {DEVICE_ICONS,DEVICE_TYPES,ICON_GROUPS,KIND_CHOICES,normalizeIcon,mdiIconMarkup,COLOR_PALETTE,PALETTE_KINDS,kindPalette,MDI_READY} from './vega-icons.js?v=v100c7';
-import {ROOM_ENTITY_DOMAINS,roomAreaEntities} from './vega-device-model.js?v=v100c7';
-import {vegaRequest} from './vega-request.js?v=v100c7';
+import {DEVICE_ICONS,DEVICE_TYPES,ICON_GROUPS,KIND_CHOICES,normalizeIcon,mdiIconMarkup,COLOR_PALETTE,PALETTE_KINDS,kindPalette,MDI_READY} from './vega-icons.js?v=v102c1';
+import {ROOM_ENTITY_DOMAINS,roomAreaEntities} from './vega-device-model.js?v=v102c1';
+import {vegaRequest} from './vega-request.js?v=v102c1';
 /* Draft-only editor: browse HA entities, then customize the selected tiles. */
 export function installVegaConfiguration(panel) {
   const root=panel.shadowRoot,esc=value=>panel.escape(value),t=(key,vars)=>panel.t(key,vars);

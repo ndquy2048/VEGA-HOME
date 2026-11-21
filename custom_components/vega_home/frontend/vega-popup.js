@@ -1,5 +1,5 @@
 /* VEGA HOME: custom dialogs for lights, fans, climate and simple switches. */
-import {fanCapabilities} from './vega-device-model.js?v=v100c7';
+import {fanCapabilities} from './vega-device-model.js?v=v102c1';
 
 // Display labels are localized; service values remain the original HA values.
 const LIGHT_COLORS = [
@@ -58,9 +58,12 @@ export function installVegaPopup(panel) {
   if (panel._popup) return panel._popup;
   const root = panel.shadowRoot;
   const t = (key, vars) => panel.t(key, vars);
+  // All browsers on iOS use WebKit. Include iPads requesting a desktop UA.
+  const iosWebKit = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = '/vega_home_static/vega-popup.css?v=v100c7';
+  css.href = '/vega_home_static/vega-popup.css?v=v102c1';
   root.append(css);
 
   const overlay = document.createElement('div');
@@ -947,7 +950,9 @@ export function installVegaPopup(panel) {
       if(current?.entity_id!==d.entity_id)panel.clearFanMotion(overlay);
       if (overlay.hidden) focusBefore = root.activeElement;
       clearTimeout(closeTimer);clearTimeout(optimisticTimer);optimistic.clear();queuedCommand=null;
-      panel._surface?.open('device',18);
+      const attributes=panel._hass?.states?.[d.entity_id]?.attributes||{};
+      const staticIOSLight=iosWebKit&&type==='light'&&supportsDimming(attributes);
+      panel._surface?.open('device',18,{mode:staticIOSLight?'static-ios-light':'glass'});
       current = d; kind = type; binary=false;
       token++; busy=false; dragging=false;sliderDrag=null;sliderPreview=null; view='main';wheelActive=false;lastRendered=''; errorText='';
       title.textContent=panel.deviceName(d) || d.entity_id;

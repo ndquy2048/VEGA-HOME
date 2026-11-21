@@ -147,7 +147,7 @@
     "media.playWaiting": "En attente de la lecture sur l’enceinte…",
     "media.playTimeout": "L’enceinte n’a pas confirmé la lecture.",
     "music.lockUnavailable": "La musique est en cours de lecture. Impossible d’ouvrir l’écran de verrouillage.",
-    "footer.inspired": "VEGA HOME • 1.0.1",
+    "footer.inspired": "VEGA HOME • 1.0.2",
     "theme.auto": "Auto selon l’heure",
     "theme.light": "Mode clair",
     "theme.dark": "Mode sombre",

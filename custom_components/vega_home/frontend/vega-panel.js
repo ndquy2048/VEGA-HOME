@@ -1,10 +1,10 @@
-import {DEFAULT_ICONS,normalizeIcon,entityKind,mdiIconMarkup,paletteStyle,MDI_READY} from './vega-icons.js?v=v100c7';
-import {fanCapabilities,climateControls,monitoredPlayers} from './vega-device-model.js?v=v100c7';
-import {installVegaLocale,LOCALE_WORDS,LANGUAGE_META} from './vega-i18n.js?v=v100c7';
-import { installVegaConfiguration } from './vega-config.js?v=v100c7';
-import { installVegaAppearance } from "./vega-v41.js?v=v100c7";
-import { installVegaSurface } from "./vega-surface.js?v=v100c7";
-import {vegaRequest} from './vega-request.js?v=v100c7';
+import {DEFAULT_ICONS,normalizeIcon,entityKind,mdiIconMarkup,paletteStyle,MDI_READY} from './vega-icons.js?v=v102c1';
+import {fanCapabilities,climateControls,monitoredPlayers} from './vega-device-model.js?v=v102c1';
+import {installVegaLocale,LOCALE_WORDS,LANGUAGE_META} from './vega-i18n.js?v=v102c1';
+import { installVegaConfiguration } from './vega-config.js?v=v102c1';
+import { installVegaAppearance } from "./vega-v41.js?v=v102c1";
+import { installVegaSurface } from "./vega-surface.js?v=v102c1";
+import {vegaRequest} from './vega-request.js?v=v102c1';
 const DEVICE_MEMORY_FIELDS = {
   light:['brightness','color_mode','color_temp_kelvin','hs_color','effect'],
   climate:['temperature','fan_mode','swing_mode','swing_horizontal_mode','target_temp_high','target_temp_low','preset_mode'],
@@ -77,7 +77,7 @@ class VegaHomePanel extends HTMLElement {
   // The version displayed by every settings/editor dialog follows the HA
   // integration manifest so dialogs display the current integration version.
   get releaseVersion() {
-    return this._panelInfo?.config?.integration_version || '1.0.1';
+    return this._panelInfo?.config?.integration_version || '1.0.2';
   }
 
   /* KẾT NỐI HOME ASSISTANT */
@@ -183,9 +183,9 @@ class VegaHomePanel extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>${this.styles()}</style>
-      <link rel="stylesheet" href="/vega_home_static/vega-style.css?v=v100c7">
-      <link rel="stylesheet" href="/vega_home_static/vega-v41.css?v=v100c7">
-      <link rel="stylesheet" href="/vega_home_static/vega-setup.css?v=v100c7">
+      <link rel="stylesheet" href="/vega_home_static/vega-style.css?v=v102c1">
+      <link rel="stylesheet" href="/vega_home_static/vega-v41.css?v=v102c1">
+      <link rel="stylesheet" href="/vega_home_static/vega-setup.css?v=v102c1">
 
       <div class="app">
 
@@ -342,7 +342,7 @@ class VegaHomePanel extends HTMLElement {
     if(!this.isLockAllowed())return Promise.resolve(null);
     if(this._screensaver)return Promise.resolve(this._screensaver);
     if(this._screensaverLoading)return this._screensaverLoading;
-    this._screensaverLoading=import("/vega_home_static/vega-screensaver.js?v=v100c7")
+    this._screensaverLoading=import("/vega_home_static/vega-screensaver.js?v=v102c1")
       .then(({ installVegaScreensaver }) => {
         if (this.isConnected&&this.isLockAllowed()) {
           this._screensaver = installVegaScreensaver(this);
@@ -360,7 +360,7 @@ class VegaHomePanel extends HTMLElement {
   loadPopup() {
     if(this._popup || this._popupLoading)return;
     this._popupLoading=true;
-    import("/vega_home_static/vega-popup.js?v=v100c7")
+    import("/vega_home_static/vega-popup.js?v=v102c1")
       .then(({ installVegaPopup }) => {
         if (this.isConnected) {
           this._popup = installVegaPopup(this);
@@ -374,7 +374,7 @@ class VegaHomePanel extends HTMLElement {
   loadMedia() {
     if(this._media||this._mediaLoading)return;
     this._mediaLoading=true;
-    import('/vega_home_static/vega-media.js?v=v100c7')
+    import('/vega_home_static/vega-media.js?v=v102c1')
       .then(({ installVegaMedia }) => {
         if (this.isConnected) {
           this._media = installVegaMedia(this);
@@ -456,7 +456,7 @@ class VegaHomePanel extends HTMLElement {
   loadMusicPage() {
     if(this._musicPage||this._musicPageLoading)return;
     this._musicPageLoading=true;
-    import('/vega_home_static/vega-music-page.js?v=v100c7')
+    import('/vega_home_static/vega-music-page.js?v=v102c1')
       .then(({installVegaMusicPage}) => {
         if(this.isConnected){this._musicPage=installVegaMusicPage(this);
           if(this._musicOpenQueued){this._musicOpenQueued=false;this._musicPage.open(...this._musicOrigin);}}
